@@ -13,10 +13,14 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:report": "playwright show-report",
-    "prepare": "husky"
+    "prepare": "husky",
+    "vercel": "vercel dev",
+    "vercel:login": "vercel login",
+    "vercel:logout": "vercel logout"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.71.10",
+    "@vercel/node": "^5.3.0",
     "class-variance-authority": "^0.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -57,6 +61,7 @@
     "prettier-plugin-tailwindcss": "^0.6.13",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
+    "vercel": "^44.2.7",
     "vite": "^6.2.0",
     "vitest": "^3.1.1"
   },
