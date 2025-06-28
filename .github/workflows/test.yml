@@ -90,5 +90,8 @@ jobs:
         with:
           status: success
           fields: repo,commit,author,ref,workflow,job,took
+          text: |
+            성공했지롱~~~😘
+            메롱이지롱~~~😘
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
