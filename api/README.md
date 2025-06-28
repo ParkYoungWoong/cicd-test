@@ -1,2 +1,3 @@
 - 영화 검색(Avengers) 서버리스 함수도 추가했어요!
 - 서버리스 함수의 타입스크립트 에러를 `api` 폴더(현재 폴더)에 `tsconfig.json` 파일을 따로 추가했어요.
+- https://cicd-test-pi.vercel.app/ 에서 확인할 수 있어요.
