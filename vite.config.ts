@@ -26,7 +26,8 @@ export default defineConfig({
         '**/*.config.[jt]s',
         'src/main.tsx',
         'src/routes/*',
-        'src/components/Loader.tsx'
+        'src/components/Loader.tsx',
+        '.commitlintrc.js'
       ]
     }
   }
