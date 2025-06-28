@@ -14,10 +14,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - name: pnpm 설치
+        run: npm install -g pnpm
       - name: 의존성 설치
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       - name: 단위 테스트 실행
-        run: npm run test:unit:coverage
+        run: pnpm run test:unit:coverage
 
   # E2E 테스트
   e2e-test:
@@ -28,27 +30,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - name: pnpm 설치
+        run: npm install -g pnpm
 
-      # npm 캐시
-      - name: Cache npm dependencies
+      # pnpm 캐시
+      - name: Cache pnpm store
         uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.os }}-pnpm-
 
       # Playwright 캐시
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
 
       - name: 의존성 설치
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       # 브라우저가 캐시되어 있지 않은 경우에만 설치
       - name: Playwright 브라우저 설치
